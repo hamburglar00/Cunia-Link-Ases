@@ -188,6 +188,43 @@ p {
   }
 }
 
+/* =========================
+   LATIDO "JUGAR AHORA"
+   ========================= */
+
+/* Keyframes del latido */
+@keyframes gnHeartbeat {
+  0%, 100% { transform: scale(1); }
+  14%      { transform: scale(1.06); }
+  28%      { transform: scale(1); }
+  42%      { transform: scale(1.04); }
+  70%      { transform: scale(1); }
+}
+
+/* Aplica latido SOLO al botón JUGAR AHORA */
+#btnJugarAhora{
+  animation: gnHeartbeat 1.6s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* En hover: un poquito más marcado */
+#btnJugarAhora:hover{
+  animation-duration: 1.1s;
+  filter: brightness(1.12);
+}
+
+/* En active: mantené tu click feedback */
+#btnJugarAhora:active{
+  animation-duration: 1.1s;
+}
+
+/* Respeta accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  #btnJugarAhora{ animation: none; }
+}
+
+
 /* === ACCESIBILIDAD === */
 @media (prefers-reduced-motion: reduce) {
   .gn-btn {
